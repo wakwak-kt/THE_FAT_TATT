@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="600"
+     height="300"
+     viewBox="0 0 600 300"
+     fill="none">
+
+  <defs>
+    <!-- 上半円のパス -->
+    <path
+      id="text-arc"
+      d="M 100,220 A 200,200 0 0,1 500,220"
+    />
+  </defs>
+
+  <text
+    font-family="Arial Red, Impact, sans-serif"
+    font-size="56"
+    font-weight="900"
+    letter-spacing="2"
+    fill="#000">
+    <textPath
+      href="#text-arc"
+      startOffset="50%"
+      text-anchor="middle">
+      THE FAT TATT
+    </textPath>
+  </text>
+
+</svg>
