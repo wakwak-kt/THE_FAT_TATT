@@ -1,47 +1,501 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>THE FAT TATT</title>
-    <meta name="description" content="THE FAT TATTは尾道を拠点とするカスタムタトゥースタジオです。カラー、細密デザインを得意とし、一人ひとりの想いを丁寧にヒアリングして世界に一つだけのアートを創り上げます。初めての方も安心してご来店いただけます。" />
-    <meta name="keywords" content="タトゥースタジオ,尾道,カスタムデザイン,カラー,細密タトゥー,THE FAT TATT" />
-    <link rel="canonical" href="https://thefattatt.com/" />
-    <meta name="last-modified" content="2025-01-01" />
-    
-    <!-- Social Media Tags -->
-    <meta property="og:title" content="THE FAT TATT" />
-    <meta property="og:description" content="唯一無二のアートを、あなたの肌に。ニュースクールスタイルのタトゥースタジオです。" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://thefattatt.com/" />
-    <meta property="og:image" content="https://thefattatt.com/og-image.jpg" />
-    
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="THE FAT TATT" />
-    <meta name="twitter:description" content="唯一無二のアートを、あなたの肌に。ニュースクールスタイルのタトゥースタジオです。" />
-    
-    <!-- Remix Icon -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script 
-      src="https://readdy.ai/api/public/assistant/widget?projectId=cf7520b0-c0f1-4ebb-8221-564e632ee8c2"
-      mode="hybrid"
-      voice-show-transcript="true"
-      theme="light"
-      size="compact"
-      accent-color="#14B8A6"
-      button-base-color="#0a0a0a"
-      button-accent-color="#FFFFFF"
-      defer
-    ></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE FAT TATT - タトゥースタジオ | 広島県尾道市</title>
+  <meta name="description" content="THE FAT TATTは広島県尾道市を拠点とするタトゥースタジオです。完全予約制で一生残るアートを創り上げます。">
+  <meta name="keywords" content="タトゥースタジオ,尾道,カスタムデザイン,カラー,細密タトゥー,THE FAT TATT">
+  <link rel="canonical" href="https://thefattatt.com/">
+
+  <!-- Social Media Tags -->
+  <meta property="og:title" content="THE FAT TATT">
+  <meta property="og:description" content="唯一無二のアートを、あなたの肌に。ニュースクールスタイルのタトゥースタジオです。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thefattatt.com/">
+  <meta property="og:image" content="https://thefattatt.com/og-image.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="THE FAT TATT">
+  <meta name="twitter:description" content="唯一無二のアートを、あなたの肌に。ニュースクールスタイルのタトゥースタジオです。">
+
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <!-- <nav id="navbar" class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="navbar-logo" onclick="scrollToTop(); return false;">
+        <img src="https://static.readdy.ai/image/763cd5476cea5c3de6df92252e2f6a79/e523d0c56cb647b86c05dc58a234f0ff.png" alt="THE FAT TATT Logo">
+      </a>
+
+      <div class="navbar-links">
+        <button onclick="scrollToSection('about')" class="nav-link">スタジオ</button>
+        <button onclick="scrollToSection('gallery')" class="nav-link">ギャラリー</button>
+        <button onclick="scrollToSection('artists')" class="nav-link">アーティスト</button>
+        <a href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer" class="nav-button">予約する</a>
+      </div>
+
+      <button id="mobile-menu-btn" class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="ri-menu-line"></i>
+      </button>
+    </div>
+
+    Mobile Menu
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-content">
+        <button onclick="scrollToSection('about')" class="mobile-nav-link">スタジオ</button>
+        <button onclick="scrollToSection('gallery')" class="mobile-nav-link">ギャラリー</button>
+        <button onclick="scrollToSection('artists')" class="mobile-nav-link">アーティスト</button>
+        <a href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer" class="mobile-nav-button">予約する</a>
+      </div>
+    </div>
+  </nav> 
+-->
+
+  <main>
+    <!-- Hero Section (Slot Machine Animation) -->
+    <section id="hero" class="hero-section">
+      <div class="slot-container">
+        <div id="slot-reel" class="slot-reel">
+          <!-- Slot images will be inserted by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Flying Pizzas -->
+      <div id="flying-pizzas" class="flying-pizzas"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="section-title">THE FAT TATTについて</h2>
+          <p class="section-subtitle">
+            一生残るアートだからこそ、妥協しない。<br>
+            お客様の想いを形にするため、デザインから施術まで一貫してこだわり抜きます。
+          </p>
+        </div>
+
+        <div class="about-content fade-up">
+          <div class="about-image-wrapper">
+            <img src="images/nakamura_design.jpg" alt="スタジオ内観" class="about-image">
+            <div class="about-tags">
+              <span class="about-tag">衛生管理徹底</span>
+              <span class="about-tag">完全予約制</span>
+              <span class="about-tag">カスタムデザイン</span>
+            </div>
+          </div>
+
+          <div class="about-text">
+            <div class="concept-badge">コンセプト</div>
+            <h3 class="about-heading">世界に一つだけのアートを</h3>
+            <p class="about-description">
+              THE FAT TATTは、広島県尾道市を拠点とするニュースクールタトゥースタジオです。THE FAT TATTでは、タトゥーを単なる装飾ではなく、お客様の人生の一部となる芸術作品として捉えています。
+            </p>
+
+            <div class="about-features">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="ri-shield-check-line"></i>
+                </div>
+                <h4 class="feature-title">安全性</h4>
+                <p class="feature-text">使い捨て器具の使用と徹底した衛生管理</p>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="ri-palette-line"></i>
+                </div>
+                <h4 class="feature-title">芸術性</h4>
+                <p class="feature-text">高い技術力と豊富な経験による美しい仕上がり</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy-section">
+      <div class="container">
+        <div class="philosophy-card fade-up">
+          <div class="philosophy-content">
+            <div class="philosophy-text">
+              <div class="philosophy-label">OUR PHILOSOPHY</div>
+              <h2 class="philosophy-title">
+                一生残るアートだからこそ、<br>
+                妥協しない
+              </h2>
+              <p class="philosophy-description">
+                タトゥーは一生残るものだからこそ、一切の妥協を許しません。お客様との綿密なコミュニケーションを通じて、本当に満足いただけるデザインを追求します。
+              </p>
+              <p class="philosophy-description">
+                施術後も長く美しい状態を保てるよう、アフターケアまで丁寧にサポートいたします。
+              </p>
+            </div>
+
+            <div class="philosophy-image-wrapper">
+              <img src="images/nakamura_tatt.jpg" alt="デザインスケッチ" class="philosophy-image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+      <div class="container">
+        <!-- Design Patterns -->
+        <div class="section-header fade-up">
+          <h2 class="section-title-dark">3つのデザインパターン</h2>
+          <p class="section-subtitle-dark">お客様のニーズに合わせた施術方法をご用意しています</p>
+        </div>
+
+        <div class="patterns-grid">
+          <div class="pattern-card fade-up">
+            <div class="pattern-icon">
+              <i class="ri-pencil-ruler-2-line"></i>
+            </div>
+            <h3 class="pattern-title">オーダー</h3>
+            <p class="pattern-description">お客様の欲しいモチーフをお伝えいただき、アーティストがオリジナルデザインとして描き起こします</p>
+            <div class="pattern-features">
+              <div class="pattern-feature">
+                <i class="ri-check-line"></i>
+                <span>完全オリジナル</span>
+              </div>
+              <div class="pattern-feature">
+                <i class="ri-check-line"></i>
+                <span>世界に一つだけ</span>
+              </div>
+              <div class="pattern-feature">
+                <i class="ri-check-line"></i>
+                <span>じっくり相談</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pattern-card fade-up" style="animation-delay: 0.1s;">
+            <div class="pattern-icon">
+              <i class="ri-image-add-line"></i>
+            </div>
+            <h3 class="pattern-title">持ち込み</h3>
+            <p class="pattern-description">「このタトゥーを彫りたい」というデザインをお持ちください。ご希望のデザインを忠実に再現します</p>
+            <div class="pattern-features">
+              <div class="pattern-feature">
+                <i class="ri-check-line"></i>
+                <span>お気に入りデザイン</span>
+              </div>
+              <div class="pattern-feature">
+                <i class="ri-check-line"></i>
+                <span>参考画像OK</span>
+              </div>
+              <div class="pattern-feature">
+                <i class="ri-check-line"></i>
+                <span>細部まで相談</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pattern-card fade-up" style="animation-delay: 0.2s;">
+            <div class="pattern-icon">
+              <i class="ri-gallery-line"></i>
+            </div>
+            <h3 class="pattern-title">アートドロップ</h3>
+            <p class="pattern-description">アーティストが事前に描いたデザインの中からお選びいただけます。比較的リーズナブルな価格設定です</p>
+            <div class="pattern-features">
+              <div class="pattern-feature">
+                <i class="ri-check-line"></i>
+                <span>既存デザイン</span>
+              </div>
+              <div class="pattern-feature">
+                <i class="ri-check-line"></i>
+                <span>リーズナブル</span>
+              </div>
+              <div class="pattern-feature">
+                <i class="ri-check-line"></i>
+                <span>すぐ施術可能</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Process Steps -->
+        <div class="section-header fade-up" style="margin-top: 8rem;">
+          <h2 class="section-title-dark">施術の流れ</h2>
+          <p class="section-subtitle-dark">初めての方でも安心してご利用いただけます</p>
+        </div>
+
+        <div class="steps-container">
+          <div class="steps-line"></div>
+          <div class="steps-grid">
+            <div class="step-card fade-up">
+              <div class="step-number">01</div>
+              <div class="step-icon">
+                <i class="ri-calendar-check-line"></i>
+              </div>
+              <h3 class="step-title">ご予約</h3>
+              <p class="step-description">InstagramのDMにてご希望の日時とデザインのイメージをお伝えください</p>
+            </div>
+
+            <div class="step-card fade-up" style="animation-delay: 0.1s;">
+              <div class="step-number">02</div>
+              <div class="step-icon">
+                <i class="ri-discuss-line"></i>
+              </div>
+              <h3 class="step-title">カウンセリング</h3>
+              <p class="step-description">デザイン、サイズ、配置などを詳しくご相談。不安な点も遠慮なくお聞きください</p>
+            </div>
+
+            <div class="step-card fade-up" style="animation-delay: 0.2s;">
+              <div class="step-number">03</div>
+              <div class="step-icon">
+                <i class="ri-checkbox-circle-line"></i>
+              </div>
+              <h3 class="step-title">デザイン確定</h3>
+              <p class="step-description">ご納得いただけるまでデザインを調整。完全に満足してから施術に進みます</p>
+            </div>
+
+            <div class="step-card fade-up" style="animation-delay: 0.3s;">
+              <div class="step-number">04</div>
+              <div class="step-icon">
+                <i class="ri-hand-heart-line"></i>
+              </div>
+              <h3 class="step-title">施術</h3>
+              <p class="step-description">衛生管理を徹底した環境で、丁寧に施術を行います。痛みへの配慮も万全です</p>
+            </div>
+
+            <div class="step-card fade-up" style="animation-delay: 0.4s;">
+              <div class="step-number">05</div>
+              <div class="step-icon">
+                <i class="ri-heart-pulse-line"></i>
+              </div>
+              <h3 class="step-title">アフターケア</h3>
+              <p class="step-description">施術後のケア方法を詳しくご説明。不安なことがあればいつでもご相談ください</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-note fade-up">
+          <i class="ri-information-line"></i>
+          ご不明な点がございましたら、お気軽にInstagramのDMでお問い合わせください
+        </div>
+      </div>
+    </section>
+
+    <!-- Facility Section -->
+    <section id="facility" class="facility-section">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="section-title">安心の環境</h2>
+          <p class="section-subtitle">初めての方でも安心してご来店いただけます</p>
+        </div>
+
+        <div class="facility-grid">
+          <div class="facility-item fade-up">
+            <div class="facility-icon">
+              <i class="ri-calendar-check-line"></i>
+            </div>
+            <h3 class="facility-title">完全予約制</h3>
+            <p class="facility-description">プライベートな空間で、リラックスして施術を受けていただけます</p>
+          </div>
+
+          <div class="facility-item fade-up" style="animation-delay: 0.1s;">
+            <div class="facility-icon">
+              <i class="ri-shield-check-line"></i>
+            </div>
+            <h3 class="facility-title">衛生管理</h3>
+            <p class="facility-description">使い捨て器具の使用と徹底した消毒で、安全性を最優先</p>
+          </div>
+
+          <div class="facility-item fade-up" style="animation-delay: 0.2s;">
+            <div class="facility-icon">
+              <i class="ri-tools-line"></i>
+            </div>
+            <h3 class="facility-title">最新設備</h3>
+            <p class="facility-description">高品質な機材と厳選されたインクで、美しい仕上がりを実現</p>
+          </div>
+
+          <div class="facility-item fade-up" style="animation-delay: 0.3s;">
+            <div class="facility-icon">
+              <i class="ri-heart-pulse-line"></i>
+            </div>
+            <h3 class="facility-title">アフターケア</h3>
+            <p class="facility-description">施術後のケア方法を詳しくご説明し、長期的にサポート</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Access Section -->
+    <section id="access" class="access-section">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="section-title-dark">アクセス</h2>
+          <p class="section-subtitle-dark">お気軽にお越しください</p>
+        </div>
+
+        <div class="access-content fade-up">
+          <div class="access-info">
+            <h3 class="access-heading">店舗情報</h3>
+
+            <div class="access-items">
+              <div class="access-item">
+                <div class="access-icon">
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <div class="access-detail">
+                  <h4>住所</h4>
+                  <p>〒722-0014<br>広島県尾道市三軒屋家町3-26三軒屋アパートメント東館2F</p>
+                </div>
+              </div>
+
+              <div class="access-item">
+                <div class="access-icon">
+                  <i class="ri-calendar-check-line"></i>
+                </div>
+                <div class="access-detail">
+                  <h4>営業時間</h4>
+                  <p>完全予約制<br>詳細はInstagramのDMでお問い合わせください</p>
+                </div>
+              </div>
+
+              <div class="access-item">
+                <div class="access-icon">
+                  <a href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer">
+                    <i class="ri-instagram-line"></i>
+                  </a>
+                </div>
+                <div class="access-detail">
+                  <h4>Instagram</h4>
+                  <a href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer">@the_fat_tatt</a>
+                </div>
+              </div>
+
+              <div class="access-item">
+                <div class="access-icon">
+                  <i class="ri-file-text-line"></i>
+                </div>
+                <div class="access-detail">
+                  <h4>note</h4>
+                  <a href="#">noteで最新情報をチェック</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="access-notice">
+              <i class="ri-information-line"></i>
+              <div>
+                <h4>ご来店の際の注意</h4>
+                <p>完全予約制となっております。事前にInstagramのDMでご予約をお願いいたします。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="access-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3291.838957272248!2d133.18930777604328!3d34.405438998997774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3551017f4cbbeecd%3A0x570359b4476ea913!2sTHE%20FAT%20TATT!5e0!3m2!1sja!2sjp!4v1768816720326!5m2!1sja!2sjp"
+              width="100%"
+              height="100%"
+              style="border: 0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="THE FAT TATT 地図">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking-section">
+      <div class="container">
+        <div class="booking-card fade-up">
+          <div class="booking-icon">
+            <i class="ri-instagram-line"></i>
+          </div>
+          <h2 class="booking-title">ご予約について</h2>
+          <p class="booking-description">
+            ご予約は<strong>InstagramのDM</strong>で承っております。<br>
+            お気軽にメッセージをお送りください。
+          </p>
+          <a href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer" class="booking-button">
+            <i class="ri-instagram-line"></i>
+            <span>InstagramでDMを送る</span>
+          </a>
+          <p class="booking-note">@the_fat_tatt をフォローして最新作品もチェック！</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="footer-bg">
+      <div class="footer-bg-circle footer-bg-circle-1"></div>
+      <div class="footer-bg-circle footer-bg-circle-2"></div>
+    </div>
+
+    <div class="container footer-container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://static.readdy.ai/image/763cd5476cea5c3de6df92252e2f6a79/e523d0c56cb647b86c05dc58a234f0ff.png" alt="THE FAT TATT Logo">
+          </div>
+          <p class="footer-tagline">
+            あなただけのアートを一生の宝物に。<br>
+            お客様一人ひとりの想いを大切に、<br>
+            世界に一つだけのタトゥーを創り上げます。
+          </p>
+          <div class="footer-social">
+            <a href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer" class="social-link">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="ri-facebook-line"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="ri-file-text-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-links-column">
+            <h3>MENU</h3>
+            <ul>
+              <li><a href="#">ホーム</a></li>
+              <li><a href="#about">スタジオについて</a></li>
+              <li><a href="#artists">アーティスト</a></li>
+              <li><a href="#gallery">ギャラリー</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-column">
+            <h3>CONTACT</h3>
+            <ul>
+              <li><a href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer">Instagram DM</a></li>
+              <li><a href="#">note</a></li>
+              <li><a href="#access">アクセス</a></li>
+              <li><a href="#">プライバシーポリシー</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 THE FAT TATT. All rights reserved.</p>
+        <a href="https://readdy.ai/?ref=logo" target="_blank" rel="noopener noreferrer">Powered by Readdy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
 </html>
