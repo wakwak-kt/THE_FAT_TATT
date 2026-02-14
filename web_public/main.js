@@ -134,8 +134,8 @@ function animateSlot() {
   const imageHeight = window.innerHeight / 3;
   const totalHeight = imageHeight * slotImages.length;
   const elapsed = Date.now() - slotStartTime;
-  const spinDuration = 6000;
-  const slowdownStart = 2500;
+  const spinDuration = 3000;
+  const slowdownStart = 500;
 
   if (elapsed < spinDuration) {
     slotScrollPosition += slotVelocity;
