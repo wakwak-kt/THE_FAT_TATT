@@ -3,6 +3,11 @@
  */
 
 // ===================================
+// API Configuration
+// ===================================
+const API_BASE_URL = 'http://localhost:8080';
+
+// ===================================
 // Global Variables
 // ===================================
 let isMobileMenuOpen = false;
@@ -25,6 +30,9 @@ const slotImages = [
 document.addEventListener('DOMContentLoaded', function() {
   initNavbar();
   initSlotMachine();
+  loadArtworks();
+  loadAnnouncements();
+  initBookingForm();
   initScrollAnimations();
 });
 
@@ -250,6 +258,172 @@ function initScrollAnimations() {
   }, observerOptions);
 
   fadeElements.forEach(el => observer.observe(el));
+}
+
+// ===================================
+// Art Drops (Artworks)
+// ===================================
+function loadArtworks() {
+  const grid = document.getElementById('artdrop-grid');
+  const loading = document.getElementById('artdrop-loading');
+  const empty = document.getElementById('artdrop-empty');
+
+  fetch(API_BASE_URL + '/api/public/artworks')
+    .then(function(response) {
+      if (!response.ok) throw new Error('API error');
+      return response.json();
+    })
+    .then(function(artworks) {
+      loading.style.display = 'none';
+
+      if (artworks.length === 0) {
+        empty.style.display = 'flex';
+        return;
+      }
+
+      grid.innerHTML = artworks.map(function(artwork) {
+        var imageUrl = artwork.imageUrl.startsWith('http')
+          ? artwork.imageUrl
+          : API_BASE_URL + artwork.imageUrl;
+        var priceText = artwork.price ? '¥' + artwork.price.toLocaleString() : '';
+        var categoryText = artwork.category || '';
+
+        return '<div class="artdrop-card">' +
+          '<div class="artdrop-image-wrapper">' +
+            '<img src="' + imageUrl + '" alt="' + escapeHtml(artwork.title) + '" class="artdrop-image" loading="lazy">' +
+            (categoryText ? '<span class="artdrop-category">' + escapeHtml(categoryText) + '</span>' : '') +
+          '</div>' +
+          '<div class="artdrop-info">' +
+            '<h3 class="artdrop-title">' + escapeHtml(artwork.title) + '</h3>' +
+            (artwork.description ? '<p class="artdrop-description">' + escapeHtml(artwork.description) + '</p>' : '') +
+            (priceText ? '<p class="artdrop-price">' + priceText + '</p>' : '') +
+          '</div>' +
+        '</div>';
+      }).join('');
+    })
+    .catch(function() {
+      loading.style.display = 'none';
+      empty.style.display = 'flex';
+      empty.querySelector('p').textContent = 'データの読み込みに失敗しました';
+    });
+}
+
+// ===================================
+// News (Announcements)
+// ===================================
+function loadAnnouncements() {
+  var list = document.getElementById('news-list');
+  var loading = document.getElementById('news-loading');
+  var empty = document.getElementById('news-empty');
+
+  fetch(API_BASE_URL + '/api/public/announcements')
+    .then(function(response) {
+      if (!response.ok) throw new Error('API error');
+      return response.json();
+    })
+    .then(function(announcements) {
+      loading.style.display = 'none';
+
+      if (announcements.length === 0) {
+        empty.style.display = 'flex';
+        return;
+      }
+
+      list.innerHTML = announcements.map(function(item) {
+        var date = item.publishDate || '';
+        var formattedDate = date ? formatDate(date) : '';
+
+        return '<div class="news-card">' +
+          '<div class="news-date-badge">' +
+            '<span class="news-date-month">' + (formattedDate ? formattedDate.split(' ')[0] : '') + '</span>' +
+            '<span class="news-date-day">' + (formattedDate ? formattedDate.split(' ')[1] : '') + '</span>' +
+          '</div>' +
+          '<div class="news-body">' +
+            '<h3 class="news-title">' + escapeHtml(item.title) + '</h3>' +
+            '<p class="news-content">' + escapeHtml(item.content) + '</p>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    })
+    .catch(function() {
+      loading.style.display = 'none';
+      empty.style.display = 'flex';
+      empty.querySelector('p').textContent = 'データの読み込みに失敗しました';
+    });
+}
+
+function formatDate(dateStr) {
+  var parts = dateStr.split('-');
+  if (parts.length < 3) return dateStr;
+  var months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+  var monthIndex = parseInt(parts[1], 10) - 1;
+  return months[monthIndex] + ' ' + parseInt(parts[2], 10) + '日';
+}
+
+// ===================================
+// Booking Form
+// ===================================
+function initBookingForm() {
+  var dateInput = document.getElementById('booking-date');
+  if (dateInput) {
+    var today = new Date();
+    var yyyy = today.getFullYear();
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var dd = String(today.getDate() + 1).padStart(2, '0');
+    dateInput.min = yyyy + '-' + mm + '-' + dd;
+  }
+}
+
+function submitBooking(event) {
+  event.preventDefault();
+
+  var form = document.getElementById('booking-form');
+  var submitBtn = document.getElementById('booking-submit');
+  var successMsg = document.getElementById('booking-success');
+  var errorMsg = document.getElementById('booking-error');
+
+  successMsg.style.display = 'none';
+  errorMsg.style.display = 'none';
+
+  submitBtn.disabled = true;
+  submitBtn.querySelector('span').textContent = '送信中...';
+
+  var data = {
+    customerName: form.customerName.value,
+    email: form.email.value,
+    phone: form.phone.value || '',
+    date: form.date.value,
+    time: form.time.value,
+    service: form.service.value,
+    notes: form.notes.value || ''
+  };
+
+  fetch(API_BASE_URL + '/api/public/bookings', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+    .then(function(response) {
+      if (!response.ok) throw new Error('API error');
+      form.style.display = 'none';
+      successMsg.style.display = 'flex';
+    })
+    .catch(function() {
+      errorMsg.style.display = 'flex';
+    })
+    .finally(function() {
+      submitBtn.disabled = false;
+      submitBtn.querySelector('span').textContent = '予約を送信する';
+    });
+}
+
+// ===================================
+// Utility Functions
+// ===================================
+function escapeHtml(text) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(text));
+  return div.innerHTML;
 }
 
 // ===================================
