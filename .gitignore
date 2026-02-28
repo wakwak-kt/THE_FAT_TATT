@@ -28,5 +28,8 @@ Thumbs.db
 *.log
 logs/
 
+# Uploads
+uploads/
+
 # Misc
 nul

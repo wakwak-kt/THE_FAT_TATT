@@ -237,7 +237,7 @@
                 <i class="ri-calendar-check-line"></i>
               </div>
               <h3 class="step-title">ご予約</h3>
-              <p class="step-description">InstagramのDMにてご希望の日時とデザインのイメージをお伝えください</p>
+              <p class="step-description">予約フォームまたはInstagramのDMにてご希望の日時とデザインのイメージをお伝えください</p>
             </div>
 
             <div class="step-card fade-up" style="animation-delay: 0.1s;">
@@ -281,6 +281,57 @@
         <div class="process-note fade-up">
           <i class="ri-information-line"></i>
           ご不明な点がございましたら、お気軽にInstagramのDMでお問い合わせください
+        </div>
+      </div>
+    </section>
+
+    <!-- Art Drop Section -->
+    <section id="artdrop" class="artdrop-section">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="section-title">アートドロップ</h2>
+          <p class="section-subtitle">
+            アーティストが描き下ろしたデザインからお選びいただけます。<br>
+            気になるデザインがあればお気軽にご予約ください。
+          </p>
+        </div>
+
+        <div id="artdrop-grid" class="artdrop-grid fade-up">
+          <!-- Artworks loaded dynamically -->
+        </div>
+
+        <div id="artdrop-loading" class="artdrop-loading fade-up">
+          <div class="loading-spinner"></div>
+          <p>読み込み中...</p>
+        </div>
+
+        <div id="artdrop-empty" class="artdrop-empty fade-up" style="display: none;">
+          <i class="ri-gallery-line"></i>
+          <p>現在公開中のアートドロップはありません</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news-section">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="section-title-dark">お知らせ</h2>
+          <p class="section-subtitle-dark">最新のニュースとお知らせ</p>
+        </div>
+
+        <div id="news-list" class="news-list fade-up">
+          <!-- Announcements loaded dynamically -->
+        </div>
+
+        <div id="news-loading" class="news-loading fade-up">
+          <div class="loading-spinner"></div>
+          <p>読み込み中...</p>
+        </div>
+
+        <div id="news-empty" class="news-empty fade-up" style="display: none;">
+          <i class="ri-newspaper-line"></i>
+          <p>現在お知らせはありません</p>
         </div>
       </div>
     </section>
@@ -413,20 +464,100 @@
     <!-- Booking Section -->
     <section id="booking" class="booking-section">
       <div class="container">
-        <div class="booking-card fade-up">
-          <div class="booking-icon">
-            <i class="ri-instagram-line"></i>
+        <div class="section-header fade-up">
+          <h2 class="section-title">ご予約</h2>
+          <p class="section-subtitle">下記フォームまたはInstagramのDMからご予約いただけます</p>
+        </div>
+
+        <div class="booking-content fade-up">
+          <div class="booking-form-wrapper">
+            <h3 class="booking-form-title">
+              <i class="ri-calendar-check-line"></i>
+              予約フォーム
+            </h3>
+
+            <form id="booking-form" class="booking-form" onsubmit="submitBooking(event)">
+              <div class="form-group">
+                <label for="booking-name">お名前 <span class="required">*</span></label>
+                <input type="text" id="booking-name" name="customerName" required placeholder="山田 太郎">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="booking-email">メールアドレス <span class="required">*</span></label>
+                  <input type="email" id="booking-email" name="email" required placeholder="example@mail.com">
+                </div>
+
+                <div class="form-group">
+                  <label for="booking-phone">電話番号</label>
+                  <input type="tel" id="booking-phone" name="phone" placeholder="090-1234-5678">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="booking-date">希望日 <span class="required">*</span></label>
+                  <input type="date" id="booking-date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="booking-time">希望時間 <span class="required">*</span></label>
+                  <input type="time" id="booking-time" name="time" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="booking-service">施術タイプ <span class="required">*</span></label>
+                <select id="booking-service" name="service" required>
+                  <option value="">選択してください</option>
+                  <option value="オーダー">オーダー（オリジナルデザイン）</option>
+                  <option value="持ち込み">持ち込み（デザイン持参）</option>
+                  <option value="アートドロップ">アートドロップ（既存デザイン）</option>
+                  <option value="相談">まずは相談したい</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="booking-notes">ご要望・備考</label>
+                <textarea id="booking-notes" name="notes" rows="4" placeholder="デザインのイメージ、サイズ、部位などご自由にご記入ください"></textarea>
+              </div>
+
+              <button type="submit" id="booking-submit" class="booking-submit-btn">
+                <i class="ri-send-plane-line"></i>
+                <span>予約を送信する</span>
+              </button>
+            </form>
+
+            <div id="booking-success" class="booking-message booking-success" style="display: none;">
+              <i class="ri-checkbox-circle-line"></i>
+              <h4>ご予約を受け付けました</h4>
+              <p>確認後、メールまたはInstagramのDMでご連絡いたします。</p>
+            </div>
+
+            <div id="booking-error" class="booking-message booking-error" style="display: none;">
+              <i class="ri-error-warning-line"></i>
+              <h4>送信に失敗しました</h4>
+              <p>しばらくしてから再度お試しいただくか、InstagramのDMでご連絡ください。</p>
+            </div>
           </div>
-          <h2 class="booking-title">ご予約について</h2>
-          <p class="booking-description">
-            ご予約は<strong>InstagramのDM</strong>で承っております。<br>
-            お気軽にメッセージをお送りください。
-          </p>
-          <a href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer" class="booking-button">
-            <i class="ri-instagram-line"></i>
-            <span>InstagramでDMを送る</span>
-          </a>
-          <p class="booking-note">@the_fat_tatt をフォローして最新作品もチェック！</p>
+
+          <div class="booking-side">
+            <div class="booking-card">
+              <div class="booking-icon">
+                <i class="ri-instagram-line"></i>
+              </div>
+              <h3 class="booking-card-title">InstagramでもOK</h3>
+              <p class="booking-card-description">
+                InstagramのDMでもご予約を承っております。<br>
+                お気軽にメッセージをお送りください。
+              </p>
+              <a href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer" class="booking-button">
+                <i class="ri-instagram-line"></i>
+                <span>InstagramでDMを送る</span>
+              </a>
+              <p class="booking-note">@the_fat_tatt をフォローして最新作品もチェック！</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -472,16 +603,16 @@
             <ul>
               <li><a href="#">ホーム</a></li>
               <li><a href="#about">スタジオについて</a></li>
-              <li><a href="#artists">アーティスト</a></li>
-              <li><a href="#gallery">ギャラリー</a></li>
+              <li><a href="#artdrop">アートドロップ</a></li>
+              <li><a href="#news">お知らせ</a></li>
             </ul>
           </div>
 
           <div class="footer-links-column">
             <h3>CONTACT</h3>
             <ul>
+              <li><a href="#booking">ご予約</a></li>
               <li><a href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer">Instagram DM</a></li>
-              <li><a href="#">note</a></li>
               <li><a href="#access">アクセス</a></li>
               <li><a href="#">プライバシーポリシー</a></li>
             </ul>

@@ -28,12 +28,12 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/thefattatt
       SPRING_DATASOURCE_USERNAME: thefattatt
       SPRING_DATASOURCE_PASSWORD: thefattatt123
+      UPLOAD_PATH: /app/uploads
     depends_on:
       db:
         condition: service_healthy
     volumes:
-      - uploads_data:/app/uploads
+      - ./uploads:/app/uploads
 
 volumes:
   postgres_data:
-  uploads_data:
